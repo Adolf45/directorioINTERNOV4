@@ -1,0 +1,43 @@
+<div class="w-100 body-form bg-white mt-4 mb-4  rounded-3 shadow">
+  <br/>
+  <h2>Lista de Empleados</h2>
+  <br/>
+  <select class="form-select" aria-label="Default select example" style="width:30%; margin-left:50px" name="filterAdmin" [(ngModel)]="filterPost" >
+    <option selected>Responsable directo:</option>
+    <option  *ngFor="let item of collection3.data3" >{{item.responsable_directo}}</option>
+  </select>
+  <br/>
+  <br/>
+<table class="table table-striped">
+<thead class="table-dark">
+  <tr>
+    <th>ID</th>
+    <th>Nombre </th>
+    <th>Contacto</th>
+    <th>Fecha_Nacimiento</th>
+    <th>Proyecto_asignado</th>
+    <th>Fecha_incorporación</th>
+    <th>Fecha_baja</th>
+    <th>Responsable_directo</th>
+    
+  </tr>
+</thead>
+<tbody>
+<tr *ngFor="let item of  collection.data | filter:filterPost">
+<td>{{item.id}}</td>
+<td>{{item.nombre}}</td>
+<td>{{item.contacto}}</td>
+<td>{{item.fecha_nacimiento}}</td>
+<td >{{item.proyecto_asignado}}</td>
+<td>{{item.fecha_incorporacion}}</td>
+<td>{{item.fecha_baja}}</td>
+<td>{{item.responsable_directo}}</td>
+
+</tr>
+</tbody>
+</table>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+</div>
+
